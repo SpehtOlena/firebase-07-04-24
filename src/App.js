@@ -2,7 +2,10 @@ import { getFirebase, isEmpty, isLoaded, useFirestoreConnect } from 'react-redux
 import './App.css'
 import { useSelector } from 'react-redux'
 import Authentication from './components/Authentication/Authentication'
-import { Button } from 'antd'
+import { Button, Divider } from 'antd'
+import Button2 from './components/Button2/Button2';
+import GuessNumberGame from './components/GuessNumberGame/GuessNumberGame'
+import TicTacToe from './components/TicTacToe/TicTacToe'
 
 
 const App = () => {
@@ -13,6 +16,17 @@ const App = () => {
 	const data = useSelector(state => state.firestore.ordered.users);
 	return (
 		<div>
+			<Divider>TICTACTOE</Divider>
+			<TicTacToe />
+
+			<Divider>Testing</Divider>
+			<GuessNumberGame />
+
+
+			<Button2 onClick={() => { alert('Click') }} children={'Test'} />
+
+
+			<Divider>Firebase</Divider>
 			{
 				isEmpty(auth) &&
 				<Authentication />
